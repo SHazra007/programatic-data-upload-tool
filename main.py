@@ -1,10 +1,11 @@
+import boto3
 import csv
 import os
 import time
 from datetime import datetime
 from io import StringIO
 
-import boto3
+
 
 from config import BUCKET, companies
 
