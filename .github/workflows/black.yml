@@ -1,11 +1,11 @@
 # See https://pycqa.github.io/isort/docs/configuration/github_action.html
-name: isort
+name: black
 
 on:
   - pull_request
 
 jobs:
-  isort:
+  black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
