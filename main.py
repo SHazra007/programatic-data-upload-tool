@@ -19,12 +19,12 @@ s3 = boto3.client(
 
 def get_records_from_s3(company):
     today = datetime.today().strftime("%m_%d_%Y")
-    key = f'{company}/{today}/raw_employees_data.csv'
+    key = f"{company}/{today}/raw_employees_data.csv"
     response = s3.get_object(
         Bucket=BUCKET,
         Key=key,
     )
-    data = response['Body'].read().decode('utf-8')
+    data = response["Body"].read().decode("utf-8")
     return data
 
 
@@ -33,7 +33,7 @@ def parse_data_from_records(records):
     return [row for row in reader]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     employees = []
     for company in companies:
         records = get_records_from_s3(company)
