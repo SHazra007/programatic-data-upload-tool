@@ -21,10 +21,11 @@ def get_records_from_s3(company):
     today = datetime.today().strftime("%m_%d_%Y")
     key = f"{company}/{today}/raw_employees_data.csv"
     response = s3.get_object(
+
         Bucket=BUCKET,
         Key=key,
     )
-    data = response["Body"].read().decode("utf-8")
+    data =  response["Body"].read().decode("utf-8")
     return data
 
 
@@ -39,7 +40,7 @@ if __name__ == "__main__":
         records = get_records_from_s3(company)
         records = parse_data_from_records(records)
         employees.extend(records)
-    print(len(employees))
+    print( len(employees))
 
 
 #     #
